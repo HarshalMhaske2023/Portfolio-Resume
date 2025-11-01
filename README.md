@@ -44,7 +44,7 @@ The site includes a **contact section** with dynamic message saving using browse
 
 1. **Clone or download** this repository:  
    ```bash
-   git clone https://github.com/HarshalMhaske2023/Basic-Portfolio.git
+   git clone https://github.com/HarshalMhaske2023/Portfolio-Resume.git
 
 
    portfolio/
@@ -54,3 +54,4 @@ The site includes a **contact section** with dynamic message saving using browse
 ├── README.md          # Project documentation
 └── (optional assets)  # Additional images or files
 
+# Portfolio-Resume
