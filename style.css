@@ -1,0 +1,13 @@
+body { background:#d4f7de; font-family: 'Segoe UI', Arial, sans-serif; margin:0; color:#222; }
+.container{ max-width:900px; margin:24px auto; background:#e8ffe7; border-radius:12px; box-shadow:0 2px 16px rgba(0,0,0,0.07); padding:24px; }
+.site-header{ background:#21b328; border-bottom:1px solid #f0e6e6; }
+.header-inner{ display:flex; align-items:center; justify-content:space-between; padding:12px 24px; }
+.site-title{ color:#21b328; margin:0; font-size:1.1rem; }
+.main-nav a{ margin-left:12px; color:#21b328; text-decoration:none }
+.main-nav a:hover{ text-decoration:underline }
+.profile-img-lg{ width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid #d4f7de }
+.hero{ text-align:center }
+.cta{ display:inline-block; padding:8px 12px; background:#d4f7de; color:#21b328; border-radius:6px; text-decoration:none }
+.site-footer{ padding:12px; text-align:center; color:#21b328 }
+@media (max-width:600px){ .container{ margin:8px; padding:12px } .header-inner{ flex-direction:column; gap:8px } .main-nav a{ margin-left:0 } }
+

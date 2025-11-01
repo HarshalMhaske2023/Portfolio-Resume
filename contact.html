@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="portfolioApp">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harshal Mhaske — Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="ContactCtrl as c">
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title">HARSHAL RAJENDRA MHASKE</h1>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Contact</h2>
+  <p>✉️Email: <a href="#" ng-click="c.openComposer('email','harshalmhaske09@gmail.com')">harshalmhaske09@gmail.com</a></p>
+  <p>📞Phone: <a href="#" ng-click="c.openComposer('phone','+91 9552536870')">+91 9552536870</a></p>
+  <p>🔗LinkedIn: <a href="https://www.linkedin.com/in/harshalmhaske09" target="_blank">linkedin.com/in/harshalmhaske09</a></p>
+  <p>🐙 GitHub: <a href="https://github.com/Harshalmhaske2023" target="_blank">github.com/Harshalmhaske2023</a></p>
+ 
+    <div id="contact-composer" ng-show="c.showComposer" style="margin-top:12px;padding:12px;background:#fff;border-radius:8px;border:1px solid #eee;">
+      <h3 id="composer-title">{{c.origin === 'phone' ? 'Message via phone' : 'Send a message'}}</h3>
+      <form ng-submit="c.saveMsg()">
+        <div style="margin-bottom:8px;"><input ng-model="c.form.name" placeholder="Your name" style="padding:8px;width:32%;margin-right:8px;" /><input ng-model="c.form.contact" placeholder="Your email or phone" style="padding:8px;width:40%;" /></div>
+        <div><textarea ng-model="c.form.message" rows="4" placeholder="Your message" style="width:100%;padding:8px;"></textarea></div>
+        <div style="margin-top:8px;">
+          <button type="button" ng-click="c.openMail()" style="padding:8px 12px;margin-right:8px;background:#c0392b;color:#fff;border:none;border-radius:6px;">Open mail client</button>
+          <button type="submit" style="padding:8px 12px;margin-right:8px;background:#2ecc71;color:#fff;border:none;border-radius:6px;">Save message</button>
+          <button type="button" ng-click="c.cancel()" style="padding:8px 12px;background:#95a5a6;color:#fff;border:none;border-radius:6px;">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="stored-messages" style="margin-top:12px;">
+      <div style="display:flex;align-items:center;gap:12px;justify-content:space-between;">
+        <h4 style="margin:0">Saved messages <small style="color:#666;font-weight:normal">({{c.messages.length}})</small></h4>
+        <div>
+          <button ng-click="c.toggleMessages()" style="padding:6px 10px;margin-right:8px;background:#3498db;color:#fff;border:none;border-radius:6px;">{{c.showMessages ? 'Hide' : 'Show'}} messages</button>
+          <button ng-click="c.clearMessages()" style="padding:6px 10px;background:#e74c3c;color:#fff;border:none;border-radius:6px;">Clear all</button>
+        </div>
+      </div>
+
+      <div ng-show="!c.messages.length" id="no-messages" style="margin-top:8px;">No messages yet. <button ng-click="c.addSample()" style="margin-left:8px;padding:6px 8px;background:#3498db;color:#fff;border:none;border-radius:4px;">Add sample message</button></div>
+
+      <div ng-show="c.showMessages" style="margin-top:8px;">
+        <ul id="messages-list">
+          <li ng-repeat="m in c.messages" style="margin-bottom:12px;padding:8px;border-radius:6px;background:#fff;list-style:none;border:1px solid #eee;">
+            <div><strong>{{m.name||'Anonymous'}}</strong> <span style="color:#666">({{m.contact}})</span></div>
+            <div style="color:#888;font-size:0.9em">{{m.date | date:'medium'}}</div>
+            <div style="white-space:pre-wrap;margin-top:6px;">{{m.message}}</div>
+            <div style="font-size:0.85em;color:#666;margin-top:6px;">via: {{m.origin}}</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© 2025 Harshal Mhaske</small>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+  <script src="contact.js"></script>
+</body>
+</html>
+
